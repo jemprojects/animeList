@@ -1,10 +1,16 @@
-import { Component } from '@angular/core';
+import { AuthService } from "./auth/auth.service";
+import { Component } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: "app-root",
+  template: `
+    <app-header></app-header>
+    <router-outlet> </router-outlet>
+    <app-footer></app-footer>
+  `
 })
 export class AppComponent {
-  title = 'animeApp';
+  title = "CGPDS";
+  constructor(public authService: AuthService, router: Router) {}
 }

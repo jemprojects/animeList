@@ -1,0 +1,21 @@
+<mat-toolbar *ngIf="(authService.authStatus | async) as authStatus" class='mat-typography' color="primary" id="header">
+  <span fxShow fxHide.xs='true' fxShow.gt-xs='true' id="logo" class='mat-title titulo sombra'>
+    <br> <br>
+    <img src="/assets/pngocean.com.png" class="logo1" />
+  </span>
+  <span class="fill-remaining-space"></span>
+  <span *ngIf="authStatus.isAuthenticated" fxLayoutAlign='center center' fxShow fxHide.xs='true' fxShow.gt-xs='true'
+    class='mat-display-1 titulo sombra'>
+    <img src="/assets/Anime-logo-square.png" alt="logo" />
+  </span>
+  <span fxLayoutAlign='center center' fxShow fxHide.xs='false' fxShow.gt-xs='false' class='mat-title titulo sombra'>
+    <img src="/assets/Anime-logo-square.png" alt="logo" /><br>
+  </span>
+  <span fxShow fxHide.xs='true' fxShow.gt-xs='true' class="fill-remaining-space"></span>
+  <span class="fill-remaining-space">
+  </span>
+  <span fxShow fxHide.xs='true' fxShow.gt-xs='true' id="logo" class='mat-title titulo sombra'>
+    <br> <br>
+    <img src="/assets/pngocean.com.png" class="logo1" />
+  </span>
+</mat-toolbar>

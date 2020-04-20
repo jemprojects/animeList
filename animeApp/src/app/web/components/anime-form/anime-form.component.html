@@ -1,0 +1,85 @@
+
+<div class="col-md-4 offset-md-2" *ngIf="animeInEdition != null">
+  <div class="card">
+    <div class="card-body">
+      <form action="">
+        <div class="form-group">
+          <label>TITULO</label>
+          <input type="text" name="title" [(ngModel)]="animeInEdition.title" placeholder="Titulo" class="form-control" autofocus>
+        </div>
+        <div class="form-group">
+          <label>LINK</label>
+          <input type="link" name="link" [(ngModel)]="animeInEdition.link" placeholder="Link" class="form-control" autofocus>
+        </div>
+        <div class="form-group">
+          <label>ESTADO DEL ANIME</label>
+          <select name="estado" [(ngModel)]="animeInEdition.estadoDelAnime" placeholder="estado" class="form-control" autofocus>
+            <option value='terminado'>TERMINADO</option>
+            <option value='emision'>EMISION</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>ESTADO PROPIO</label>
+          <select name="estado" [(ngModel)]="animeInEdition.estado" placeholder="estado" class="form-control" autofocus>
+            <option value='visto hasta'> VISTO HASTA</option>
+            <option value='terminado'> TERMINADO</option>
+            <option value='abandone'>ABANDONADO</option>
+            <option value='noVisto'> NO VISTO</option>
+          </select>
+        </div>
+
+        <div class="form-group" *ngIf="animeInEdition.estado == 'visto hasta' || animeInEdition.estado == 'abandone' ">
+          <input type="text" name="capitulo" [(ngModel)]="animeInEdition.ultimoCapitulo" placeholder="Ultimo capitulo visto" class="form-control" autofocus>
+        </div>
+        <div class="form-group">
+          <label>DESCRIPCION</label>
+          <textarea name="description" [(ngModel)]="animeInEdition.description" rows="2" placeholder="Description" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+          <label>URL DE LA IMAGEN</label>
+          <input type="url" name="image URL" [(ngModel)]="animeInEdition.image" placeholder="Image" class="form-control">
+        </div>
+        <form>
+          <p class="clasificacion" >
+            <input id="radio1" type="radio" name="estrellas" [(ngModel)]="animeInEdition.calificacion" value="5"><!--
+            --><label for="radio1">★</label><!--
+            --><input id="radio2" type="radio" name="estrellas" [(ngModel)]="animeInEdition.calificacion" value="4"><!--
+            --><label for="radio2">★</label><!--
+            --><input id="radio3" type="radio" name="estrellas" [(ngModel)]="animeInEdition.calificacion" value="3"><!--
+            --><label for="radio3">★</label><!--
+            --><input id="radio4" type="radio" name="estrellas" [(ngModel)]="animeInEdition.calificacion" value="2"><!--
+            --><label for="radio4">★</label><!--
+            --><input id="radio5" type="radio" name="estrellas" [(ngModel)]="animeInEdition.calificacion" value="1"><!--
+            --><label for="radio5">★</label>
+          </p>
+        </form>
+        <button class="btn btn-success btn-block" (click)="saveNewAnime(animeInEdition)">
+          Save
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4" *ngIf="animeInEdition != null">
+  <div class="card card-body text-center">
+      <img [src]="animeInEdition.image == '' ? '/assets/noimage.png' : animeInEdition.image" alt="No Image" class="card-img-top">
+    <h3> {{animeInEdition.title == '' ? 'Anime Title' : animeInEdition.title}}</h3>
+    <a href="{{animeInEdition.link }}"> {{animeInEdition.link == '' ? 'Link' : animeInEdition.link}}</a>
+    <p>{{animeInEdition.description == '' ? 'Escribe una descripcion' : animeInEdition.description}}</p>
+    <p>{{animeInEdition.created_at}}</p>
+    <p class="clasificacion" >
+      <input id="radio1" type="radio" name="estrellas" [(ngModel)]="animeInEdition.calificacion" value="5" ><!--
+      --><label for="radio1">★</label><!--
+      --><input id="radio2" type="radio" name="estrellas" [(ngModel)]="animeInEdition.calificacion" value="4"><!--
+      --><label for="radio2">★</label><!--
+      --><input id="radio3" type="radio" name="estrellas" [(ngModel)]="animeInEdition.calificacion" value="3"><!--
+      --><label for="radio3">★</label><!--
+      --><input id="radio4" type="radio" name="estrellas" [(ngModel)]="animeInEdition.calificacion" value="2"><!--
+      --><label for="radio4">★</label><!--
+      --><input id="radio5" type="radio" name="estrellas" [(ngModel)]="animeInEdition.calificacion" value="1"><!--
+      --><label for="radio5">★</label>
+    </p>
+  </div>
+</div>
+

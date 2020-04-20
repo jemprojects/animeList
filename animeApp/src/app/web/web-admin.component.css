@@ -1,0 +1,44 @@
+.container {
+  margin-top: 10px;
+  bottom: 90px;
+
+}
+
+.mat-sidenav-container{
+  background-color: rgb(124, 21, 21);
+  background-image: url("/assets/cropped-1920-1080-656029.png");
+  margin-bottom: 100px;
+
+
+}
+.mat-sidenav{
+  background-color: rgb(124, 21, 21);
+  margin-top: 10px;
+  margin-bottom: 30px;
+
+}
+
+
+.menuItem {
+  margin: 5px;
+}
+.mat-toolbar-row{
+  background-color: rgb(124, 21, 21);
+  color: blanchedalmond;
+}
+.logoutMenuItem {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+.menu-spacer {
+  background-color: rgb(124, 21, 21);
+  flex: 1 1 auto;
+}
+#logo,
+img {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+}

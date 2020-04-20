@@ -1,0 +1,9 @@
+.menu-spacer {
+  flex: 1 1 auto;
+}
+.container {
+  background-color: pink;
+  background-image: url("/assets/cropped-1920-1080-656029.png");
+  min-height: 100%;
+
+}

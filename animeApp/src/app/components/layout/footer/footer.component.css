@@ -1,0 +1,44 @@
+.fill-remaining-space {
+  flex: 1 1 auto;
+
+}
+
+#footer {
+  position: fixed;
+  background-color: black;
+  color: brown;
+  display: flex;
+  align-items: center;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+
+  text-decoration-color: brown;
+
+}
+
+h1 {
+  color:red
+
+
+}
+#header {
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+
+}
+
+#logo,
+img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0;
+  margin: 30px;
+  width: 100px;
+  height: 100px;
+
+}

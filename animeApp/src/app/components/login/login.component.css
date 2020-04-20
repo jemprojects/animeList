@@ -1,0 +1,17 @@
+.loginBox {
+
+  margin: auto;
+  width: 50%;
+  padding: 70px 0;
+}
+
+.error {
+  color: red;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.content{
+  background-color: blanchedalmond;
+
+}
+
