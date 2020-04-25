@@ -1,0 +1,34 @@
+
+
+.container{
+  background-color: rgb(124, 21, 21);
+  background-image: url("/assets/cropped-1920-1080-656029.png");
+  margin-bottom: 100px;
+}
+
+div {
+  border: 5px solid gray;
+  background-color: rgb(199, 185, 185);
+  background-image: url("/assets/Attack-on-Titan.jpg");
+  padding: 20px;
+  height: 110px;
+  width: 1140px;
+  margin-bottom: 0px;
+}
+
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  color: rgb(216, 20, 111);
+}
+
+p {
+  text-indent: 50px;
+  text-align: justify;
+  letter-spacing: 3px;
+}
+
+a {
+  text-decoration: none;
+  color: #008CBA;
+}
