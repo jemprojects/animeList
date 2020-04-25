@@ -1,5 +1,6 @@
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
+import { AllListComponent } from './components/all-list/all-list.component';
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { AngularFireDatabaseModule } from "angularfire2/database";
 import { AngularFireModule } from "angularfire2";
@@ -31,7 +32,7 @@ import { environment } from "../../environments/environment";
     AnimeFormComponent,
     MangaListComponent,
     MangaFormComponent,
-
+    AllListComponent
   ],
   imports: [
     BrowserAnimationsModule,

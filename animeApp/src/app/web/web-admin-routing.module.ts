@@ -1,5 +1,6 @@
 import { RouterModule, Routes } from "@angular/router";
 
+import { AllListComponent } from './components/all-list/all-list.component';
 import { AnimeFormComponent } from './components/anime-form/anime-form.component';
 import { AnimesListComponent } from './components/animes-list/animes-list.component';
 import { AuthGuard } from '../auth/auth-guard.service';
@@ -13,10 +14,17 @@ const routes: Routes = [
     path: "",
     component: WebAdminComponent,
     children: [
+
       {
         path: "",
-        redirectTo: "animes",
+        redirectTo: "AllForOne",
         pathMatch: "full"
+      },
+      {
+
+        path: "AllForOne",
+        component: AllListComponent,
+        canActivate: [AuthGuard],
       },
       {
         path: 'animes',
