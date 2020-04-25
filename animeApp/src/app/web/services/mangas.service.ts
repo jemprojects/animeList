@@ -14,7 +14,7 @@ export class MangasService {
       constructor(private db: AngularFireDatabase) {
         this.mangasRef = db.list("/mangas");
       }
-      getmangas(onMangasLoaded) {
+      getMangas(onMangasLoaded) {
         this.mangasRef
           .snapshotChanges()
           .pipe(

@@ -1,0 +1,25 @@
+[debug] [2020-04-25T21:52:33.862Z] ----------------------------------------------------------------------
+[debug] [2020-04-25T21:52:33.864Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Usuario\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2020-04-25T21:52:33.864Z] CLI Version:   8.1.1
+[debug] [2020-04-25T21:52:33.864Z] Platform:      win32
+[debug] [2020-04-25T21:52:33.864Z] Node Version:  v12.13.1
+[debug] [2020-04-25T21:52:33.865Z] Time:          Sat Apr 25 2020 18:52:33 GMT-0300 (GMT-03:00)
+[debug] [2020-04-25T21:52:33.865Z] ----------------------------------------------------------------------
+[debug] [2020-04-25T21:52:33.865Z] 
+[debug] [2020-04-25T21:52:33.870Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-04-25T21:52:33.870Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\PROJECTS\animeList\animeApp
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+

@@ -2,6 +2,7 @@ import { Component, HostBinding, OnInit } from '@angular/core';
 
 import { Anime } from '../../models/Animes';
 import { AnimesService } from '../../services/animes.service';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-animes-list',
@@ -11,10 +12,15 @@ import { AnimesService } from '../../services/animes.service';
 export class AnimesListComponent implements OnInit {
 
   @HostBinding('class') classes = 'row';
-
+  animesForUser: Array<Anime>
   animes: Array<Anime>
-
-  constructor(private service: AnimesService) { }
+  username:string
+  userLog: string
+  constructor(private service: AnimesService, private authService: AuthService) {
+    this.userLog=this.authService.authStatus.getValue().email
+    this.animes=null
+    this.animesForUser=null
+  }
 
 
   ngOnInit() {
@@ -23,8 +29,13 @@ export class AnimesListComponent implements OnInit {
       scope.animes= animes
     })
   }
-
-  deleteGame(id: string) {
+  loadUsername(cat){
+    this.username= cat.user.split('@')[0].toUpperCase()
+  }
+  loadAnimes(){
+    this.animesForUser=this.animes.filter(a=>a.user == this.userLog)
+  }
+  deleteAnime(id: string) {
     this.service.deleteAnime(id)
   }
 

@@ -1,0 +1,84 @@
+<mat-card class="container p-4">
+  <div class="form-group">
+    <label>CATEGORIA</label>
+    <select name="TIPO" [(ngModel)]="tipo" placeholder="TIPO" class="form-control" autofocus>
+      <option value='manga'>MANGA</option>
+      <option value='anime'>ANIME</option>
+    </select>
+  </div>
+  <div *ngIf="tipo==''" align="center"> <img src="assets/select.gif"width="900" height="600">
+  </div>
+<div *ngIf="tipo=='anime'" >
+  <div *ngIf="animes!=null" align="center"  >
+    <h1> Aun no cargaste nada...</h1>
+      <img src="assets/nosientodolor.gif" width="900" height="600">
+    </div>
+  <div *ngFor="let anime of animes"  class="col-md-4">
+    <div class="card text-center">{{loadUsername(anime)}}
+      <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+        {{anime.title}}
+      </div>
+      <img [src]="anime.image === '' ? '/assets/noimage.png' : anime.image" alt="No Image" class="card-img-top">
+      <div class="card-body">
+        <p>{{anime.estado}}</p>
+        <p *ngIf="anime.estado == 'visto hasta' || anime.estado == 'abandone' ">Capitulo: {{anime.ultimoCapitulo}}</p>
+        <p>Descripcion: {{anime.description}}</p>
+        <p class="clasificacion" >
+          <input id="radio1" type="radio" name="estrellas" [(ngModel)]="anime.calificacion" value="5" disabled><!--
+          --><label for="radio1">★</label><!--
+          --><input id="radio2" type="radio" name="estrellas" [(ngModel)]="anime.calificacion" value="4" disabled><!--
+          --><label for="radio2">★</label><!--
+          --><input id="radio3" type="radio" name="estrellas" [(ngModel)]="anime.calificacion" value="3"disabled><!--
+          --><label for="radio3">★</label><!--
+          --><input id="radio4" type="radio" name="estrellas" [(ngModel)]="anime.calificacion" value="2" disabled><!--
+          --><label for="radio4">★</label><!--
+          --><input id="radio5" type="radio" [(ngModel)]="anime.calificacion" name="estrellas" value="1"disabled><!--
+          --><label for="radio5">★</label>
+        </p>
+        <p>LO AÑADIO: {{username}}</p>
+        <p>Created At {{anime.created_at}}</p>
+        <a [routerLink]="['/anime/', anime.key]" class="btn btn-info btn-block">
+          EDIT ANIME
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+
+<div *ngIf="tipo=='manga'"   >
+  <div *ngIf="mangas!=null" align="center"  >
+    <h1> Aun no cargaste nada...</h1>
+      <img src="assets/original.gif" width="900" height="600">
+    </div>
+  <div class="col-md-4" *ngFor="let manga of mangas">
+    <div class="card text-center">{{loadUsername(manga)}}
+      <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+        {{manga.title}}
+      </div>
+      <img [src]="manga.image === '' ? '/assets/noimage.png' : manga.image" alt="No Image" class="card-img-top">
+      <div class="card-body">
+        <p>{{manga.estado}}</p>
+        <p *ngIf="manga.estado == 'visto hasta' || manga.estado == 'abandone' ">Capitulo: {{manga.ultimoCapitulo}}</p>
+        <p>Descripcion: {{manga.description}}</p>
+        <p class="clasificacion" >
+          <input id="radio1" type="radio" name="estrellas" [(ngModel)]="manga.calificacion" value="5" disabled><!--
+          --><label for="radio1">★</label><!--
+          --><input id="radio2" type="radio" name="estrellas" [(ngModel)]="manga.calificacion" value="4" disabled><!--
+          --><label for="radio2">★</label><!--
+          --><input id="radio3" type="radio" name="estrellas" [(ngModel)]="manga.calificacion" value="3"disabled><!--
+          --><label for="radio3">★</label><!--
+          --><input id="radio4" type="radio" name="estrellas" [(ngModel)]="manga.calificacion" value="2" disabled><!--
+          --><label for="radio4">★</label><!--
+          --><input id="radio5" type="radio" [(ngModel)]="manga.calificacion" name="estrellas" value="1"disabled><!--
+          --><label for="radio5">★</label>
+        </p>
+        <p>LO AÑADIO: {{username}}</p>
+        <p>Created At {{manga.created_at}}</p>
+        <a [routerLink]="['/manga/', manga.key]" class="btn btn-info btn-block">
+          EDIT MANGA
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+</mat-card>
