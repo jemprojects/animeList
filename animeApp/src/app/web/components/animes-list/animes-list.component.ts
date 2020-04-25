@@ -12,8 +12,8 @@ import { AuthService } from 'src/app/auth/auth.service';
 export class AnimesListComponent implements OnInit {
 
   @HostBinding('class') classes = 'row';
-  animesForUser: Array<Anime>
-  animes: Array<Anime>
+  animesForUser: Anime[]
+  animes: Anime[]
   username:string
   userLog: string
   constructor(private service: AnimesService, private authService: AuthService) {

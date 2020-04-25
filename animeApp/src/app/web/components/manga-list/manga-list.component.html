@@ -2,12 +2,13 @@
   <div *ngIf="mangas == null" align="center">
     <img src="assets/un-libro-booktag.gif"width="900" height="600">
   </div>
-  <div *ngIf="mangas!=null" >
-    <div *ngIf="mangasForUser === null" align="center">
+  <div *ngIf="mangas!=null" >{{loadMangas()}}
+    <div *ngIf="mangas.length === 0" align="center">
       <h1>No has cargado nada aun...</h1>
       <img src="assets/nomanga.gif"width="900" height="600">
     </div>
-    <div class="col-md-4" *ngFor="let manga of mangasForUser">{{loadMangas()}}
+    <div *ngIf="mangasForUser!=null">
+    <div class="col-md-4" *ngFor="let manga of mangasForUser">
       <div class="card text-center">
         <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
           {{manga.title}}
@@ -40,4 +41,5 @@
       </div>
     </div>
   </div>
+</div>
 </mat-card>
