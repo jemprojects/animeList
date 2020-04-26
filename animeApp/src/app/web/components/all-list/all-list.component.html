@@ -6,12 +6,13 @@
       <option value='anime'>ANIME</option>
     </select>
   </div>
-  <div *ngIf="tipo==''" align="center"> <img src="assets/select.gif"width="900" height="600">
+  <div *ngIf="tipo==''" align="center">
+    <img class="box" src="assets/select.gif">
   </div>
   <div *ngIf="tipo=='anime'" >
     <div *ngIf="animes.length===0" align="center"  >
       <h1> Aun no cargaste nada...</h1>
-        <img src="assets/watamole.gif" width="900" height="600">
+        <img class="box" src="assets/watamole.gif" >
       </div>
     <div *ngIf="animes!=null"  >
     <div *ngFor="let anime of animes"  class="col-md-4">
@@ -49,7 +50,7 @@
   <div *ngIf="tipo=='manga'"   >
     <div *ngIf="mangas.length===0" align="center">
       <h1> Aun no cargaste nada...</h1>
-        <img src="assets/original.gif" width="900" height="600">
+        <img class="box" src="assets/original.gif">
       </div>
       <div *ngIf="mangas!=null">
         <div class="col-md-4" *ngFor="let manga of mangas">

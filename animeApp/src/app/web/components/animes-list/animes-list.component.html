@@ -1,11 +1,11 @@
 <mat-card class="container p-4">
   <div *ngIf="animes == null" align="center">
-    <img src="assets/load.gif"width="900" height="600">
+    <img class="box" src="assets/load.gif"width="900" height="600">
   </div>
   <div *ngIf="animes!=null" >{{loadAnimes()}}
     <div *ngIf="animesForUser.length===0" align="center">
       <h1>No has cargado nada aun...</h1>
-      <img src="assets/nosientodolor.gif"width="900" height="600">
+      <img class="box" src="assets/nosientodolor.gif"width="900" height="600">
     </div>
     <div *ngIf="animesForUser!=null">
     <div class="col-md-4" *ngFor="let anime of animesForUser">
