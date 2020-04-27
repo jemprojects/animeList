@@ -9,6 +9,8 @@ import { AnimesListComponent } from './components/animes-list/animes-list.compon
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { BrowserModule } from "@angular/platform-browser";
 import { CommonModule } from "@angular/common";
+import { DramaFormComponent } from './components/drama-form/drama-form.component';
+import { DramaListComponent } from './components/drama-list/drama-list.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MangaFormComponent } from './components/manga-form/manga-form.component';
 import { MangaListComponent } from './components/manga-list/manga-list.component';
@@ -17,22 +19,22 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { NavigationComponent } from './components/navigation/navigation.component';
 import { NgModule } from "@angular/core";
 import { WebAdminComponent } from "./web-admin.component";
 import { WebAdminMaterialModule } from "./web-admin.material.module";
 import { WebRoutingModule } from "./web-admin-routing.module";
-import { environment } from "../../environments/environment";
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
     WebAdminComponent,
-    NavigationComponent,
     AnimesListComponent,
     AnimeFormComponent,
     MangaListComponent,
     MangaFormComponent,
-    AllListComponent
+    AllListComponent,
+    DramaFormComponent,
+    DramaListComponent
   ],
   imports: [
     BrowserAnimationsModule,

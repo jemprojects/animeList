@@ -4,6 +4,8 @@ import { AllListComponent } from './components/all-list/all-list.component';
 import { AnimeFormComponent } from './components/anime-form/anime-form.component';
 import { AnimesListComponent } from './components/animes-list/animes-list.component';
 import { AuthGuard } from '../auth/auth-guard.service';
+import { DramaFormComponent } from './components/drama-form/drama-form.component';
+import { DramaListComponent } from './components/drama-list/drama-list.component';
 import { MangaFormComponent } from './components/manga-form/manga-form.component';
 import { MangaListComponent } from './components/manga-list/manga-list.component';
 import { NgModule } from "@angular/core";
@@ -44,6 +46,15 @@ const routes: Routes = [
       {
         path: 'manga/:id',
         component: MangaFormComponent,
+        canActivate: [AuthGuard],
+      },     {
+        path: 'dramas',
+        component: DramaListComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'drama/:id',
+        component: DramaFormComponent,
         canActivate: [AuthGuard],
       },
 

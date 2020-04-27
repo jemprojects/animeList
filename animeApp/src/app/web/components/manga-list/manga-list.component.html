@@ -1,4 +1,4 @@
-<mat-card class="container p-4">
+<mat-card class="container-fluid">
   <div *ngIf="mangas == null" align="center">
     <img class="box" src="assets/un-libro-booktag.gif">
   </div>
@@ -7,7 +7,7 @@
       <h1>No has cargado nada aun...</h1>
       <img class="box" src="assets/nomanga.gif">
     </div>
-    <div *ngIf="mangasForUser!=null">
+    <div *ngIf="mangasForUser!=null" class="row">
     <div class="col-md-4" *ngFor="let manga of mangasForUser">
       <div class="card text-center">
         <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
@@ -21,17 +21,20 @@
           <p>{{manga.estado}}</p>
           <p *ngIf="manga.estado == 'visto hasta' || manga.estado == 'abandone' ">Capitulo: {{manga.ultimoCapitulo}}</p>
           <p>Descripcion: {{manga.description}}</p>
-          <p class="clasificacion" >
-            <input id="radio1" type="radio" name="estrellas" [(ngModel)]="manga.calificacion" value="5" disabled><!--
-            --><label for="radio1">★</label><!--
-            --><input id="radio2" type="radio" name="estrellas" [(ngModel)]="manga.calificacion" value="4" disabled><!--
-            --><label for="radio2">★</label><!--
-            --><input id="radio3" type="radio" name="estrellas" [(ngModel)]="manga.calificacion" value="3"disabled><!--
-            --><label for="radio3">★</label><!--
-            --><input id="radio4" type="radio" name="estrellas" [(ngModel)]="manga.calificacion" value="2" disabled><!--
-            --><label for="radio4">★</label><!--
-            --><input id="radio5" type="radio" [(ngModel)]="manga.calificacion" name="estrellas" value="1"disabled><!--
-            --><label for="radio5">★</label>
+          <p class="clasificacion" *ngIf="manga.calificacion == 5">
+            <label name="estrellas" class=estrella>★★★★★</label>
+          </p>
+          <p class="clasificacion" *ngIf="manga.calificacion == 4">
+            <label name="estrellas" class=estrella>★★★★</label>
+          </p>
+          <p class="clasificacion" *ngIf="manga.calificacion == 3">
+            <label name="estrellas" class=estrella>★★★</label>
+          </p>
+          <p class="clasificacion" *ngIf="manga.calificacion == 2">
+            <label name="estrellas" class=estrella>★★</label>
+          </p>
+          <p class="clasificacion" *ngIf="manga.calificacion == 1">
+            <label name="estrellas" class=estrella>★</label>
           </p>
           <p>Created At {{manga.created_at}}</p>
           <a [routerLink]="['/manga/', manga.key]" class="btn btn-info btn-block">

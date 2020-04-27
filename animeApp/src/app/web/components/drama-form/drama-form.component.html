@@ -1,0 +1,88 @@
+
+<div class="col-md-4 offset-md-2" *ngIf="dramaInEdition != null">
+  <div class="card">
+    <div class="card-body">
+      <form action="">
+        <div class="form-group">
+          <label>TITULO</label>
+          <input type="text" name="title" [(ngModel)]="dramaInEdition.title" placeholder="Titulo" class="form-control" autofocus>
+        </div>
+        <div class="form-group">
+          <label>LINK</label>
+          <input type="link" name="link" [(ngModel)]="dramaInEdition.link" placeholder="Link" class="form-control" autofocus>
+        </div>
+        <div class="form-group">
+          <label>GENERO</label>
+          <input type="text" name="genero" [(ngModel)]="dramaInEdition.genero" placeholder="Genero" class="form-control" autofocus>
+        </div>
+        <div class="form-group">
+          <label>ESTADO DEL DRAMA</label>
+          <select name="estado2" [(ngModel)]="dramaInEdition.estadoDelDrama" placeholder="estado" class="form-control" autofocus>
+            <option value='terminado'>TERMINADO</option>
+            <option value='emision'>EMISION</option>
+            <option value='abandonado'>ABANDONADO</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>ESTADO</label>
+          <select name="estado" [(ngModel)]="dramaInEdition.estado" placeholder="estado" class="form-control" autofocus>
+            <option value='visto hasta'> VISTO HASTA</option>
+            <option value='terminado'> TERMINADO</option>
+            <option value='abandone'>ABANDONADO</option>
+            <option value='no visto'> NO VISTO</option>
+          </select>
+        </div>
+        <div class="form-group" *ngIf="dramaInEdition.estado == 'visto hasta' || dramaInEdition.estado == 'abandone' ">
+          <input type="text" name="capitulo" [(ngModel)]="dramaInEdition.ultimoCapitulo" placeholder="Ultimo capitulo visto" class="form-control" autofocus>
+        </div>
+        <div class="form-group">
+          <label>DESCRIPCION</label>
+          <textarea name="description" [(ngModel)]="dramaInEdition.description" rows="2" placeholder="Description" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+          <label>URL DE LA IMAGEN</label>
+          <input type="url" name="image URL" [(ngModel)]="dramaInEdition.image" placeholder="Image" class="form-control">
+        </div>
+        <form>
+          <p class="clasificacion  text-center" >
+            <input id="radio1" type="radio" name="estrellas" [(ngModel)]="dramaInEdition.calificacion" value="5"><!--
+            --><label for="radio1">★</label><!--
+            --><input id="radio2" type="radio" name="estrellas" [(ngModel)]="dramaInEdition.calificacion" value="4"><!--
+            --><label for="radio2">★</label><!--
+            --><input id="radio3" type="radio" name="estrellas" [(ngModel)]="dramaInEdition.calificacion" value="3"><!--
+            --><label for="radio3">★</label><!--
+            --><input id="radio4" type="radio" name="estrellas" [(ngModel)]="dramaInEdition.calificacion" value="2"><!--
+            --><label for="radio4">★</label><!--
+            --><input id="radio5" type="radio" name="estrellas" [(ngModel)]="dramaInEdition.calificacion" value="1"><!--
+            --><label for="radio5">★</label>
+          </p>
+        </form>
+        <button class="btn btn-success btn-block" (click)="saveNewGame(dramaInEdition)">
+          Save
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4" *ngIf="dramaInEdition != null">
+  <div class="card card-body text-center">
+      <img [src]="dramaInEdition.image == '' ? '/assets/noimage.png' : dramaInEdition.image" alt="No Image" class="card-img-top">
+    <h3> {{dramaInEdition.title == '' ? 'Drama Title' : dramaInEdition.title}}</h3>
+    <a href="{{dramaInEdition.link }}"> {{dramaInEdition.link == '' ? 'Link' : dramaInEdition.link}}</a>
+    <p>{{dramaInEdition.description == '' ? 'Escribe una descripcion' : dramaInEdition.description}}</p>
+    <p>{{dramaInEdition.created_at }}</p>
+    <p class="clasificacion" >
+      <input id="radio1" type="radio" name="estrellas" [(ngModel)]="dramaInEdition.calificacion" value="5" ><!--
+      --><label for="radio1">★</label><!--
+      --><input id="radio2" type="radio" name="estrellas" [(ngModel)]="dramaInEdition.calificacion" value="4"><!--
+      --><label for="radio2">★</label><!--
+      --><input id="radio3" type="radio" name="estrellas" [(ngModel)]="dramaInEdition.calificacion" value="3"><!--
+      --><label for="radio3">★</label><!--
+      --><input id="radio4" type="radio" name="estrellas" [(ngModel)]="dramaInEdition.calificacion" value="2"><!--
+      --><label for="radio4">★</label><!--
+      --><input id="radio5" type="radio" name="estrellas" [(ngModel)]="dramaInEdition.calificacion" value="1"><!--
+      --><label for="radio5">★</label>
+    </p>
+  </div>
+</div>
