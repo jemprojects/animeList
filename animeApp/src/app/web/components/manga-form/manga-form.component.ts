@@ -73,7 +73,7 @@ export class MangaFormComponent implements OnInit {
       )
     });
   }
-  saveNewGame(manga) {
+  saveNewManga(manga) {
     const jsonProvider = manga
     const keyout = 'key'
     delete jsonProvider[keyout]

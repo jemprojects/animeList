@@ -73,7 +73,7 @@ export class DramaFormComponent implements OnInit {
       )
     });
   }
-  saveNewGame(drama) {
+  saveNewDrama(drama) {
     const jsonProvider = drama
     const keyout = 'key'
     delete jsonProvider[keyout]
