@@ -25,14 +25,11 @@ label {
   unicode-bidi: bidi-override;
 }
 
-label:hover,
-label:hover ~ label {
+.estrella{
   color: orange;
 }
 
-input[type="radio"]:checked ~ label {
-  color: orange;
-}
+
 .box {
   width: 100%;
 
