@@ -26,8 +26,8 @@ export class DramaListComponent implements OnInit {
 
   ngOnInit() {
     var scope = this
-    this.service.getDramas(function(Dramas) {
-      scope.dramas= Dramas
+    this.service.getDramas(function(dramas) {
+      scope.dramas= dramas
     })
   }
   loadUsername(cat){

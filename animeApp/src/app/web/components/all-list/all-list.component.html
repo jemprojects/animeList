@@ -2,14 +2,16 @@
   <div class="form-group">
     <label>CATEGORIA</label>
     <select name="TIPO" [(ngModel)]="tipo" placeholder="TIPO" class="form-control" autofocus>
-      <option value='mangas'>MANGA</option>
-      <option value='animes'>ANIME</option>
+      <option value='mangas'>MANGAS</option>
+      <option value='animes'>ANIMES</option>
+      <option value='dramas'>DRAMAS</option>
     </select>
   </div>
   <div class="form-group" *ngIf="animes!=null && mangas!=null">
     <label>VER POR USUARIO</label>
     <p *ngIf="tipo=='mangas'">{{getUSers(mangas)}}</p>
     <p *ngIf="tipo=='animes'">{{getUSers(animes)}}</p>
+    <p *ngIf="tipo=='dramas'">{{getUSers(dramas)}}</p>
     <select name="USERS" [(ngModel)]="userSelect" placeholder="USUARIO" class="form-control" autofocus>
       <option selected></option>
       <option *ngFor="let user of usuarios">{{user}}</option>
@@ -94,11 +96,48 @@
         </div>
       </div>
     </div>
-
+    <div *ngIf="tipo=='dramas'" >
+      <div *ngIf="dramas.length===0" align="center">
+        <h1> Aun no cargaste nada...</h1>
+          <img class="box" src="assets/giphy (1).gif">
+        </div>
+        <div *ngIf="dramas!=null  && userSelect==''" class="row">
+          <div class="col-md-4" *ngFor="let drama of dramas">
+            <div class="card text-center">{{loadUsername(drama)}}
+              <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                {{drama.title}}
+              </div>
+              <img [src]="drama.image === '' ? '/assets/noimage.png' : drama.image" alt="No Image" class="card-img-top">
+              <div class="card-body">
+                <p>{{drama.estado}}</p>
+                <p *ngIf="drama.estado == 'visto hasta' || drama.estado == 'abandone' ">Capitulo: {{drama.ultimoCapitulo}}</p>
+                <p>Descripcion: {{drama.description}}</p>
+                <p class="clasificacion" *ngIf="drama.calificacion == 5">
+                  <label name="estrellas" class=estrella>★★★★★</label>
+                </p>
+                <p class="clasificacion" *ngIf="drama.calificacion == 4">
+                  <label name="estrellas" class=estrella>★★★★</label>
+                </p>
+                <p class="clasificacion" *ngIf="drama.calificacion == 3">
+                  <label name="estrellas" class=estrella>★★★</label>
+                </p>
+                <p class="clasificacion" *ngIf="drama.calificacion == 2">
+                  <label name="estrellas" class=estrella>★★</label>
+                </p>
+                <p class="clasificacion" *ngIf="drama.calificacion == 1">
+                  <label name="estrellas" class=estrella>★</label>
+                </p>
+                <p>LO AÑADIO: {{username}}</p>
+                <p>Created At {{drama.created_at}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     <div *ngIf="userSelect!=''" >{{getListForUser()}}
       <div *ngIf=" list.length===0" align="center">
         <h1> Aun no cargaste nada...</h1>
-          <img class="box" src="assets/original.gif">
+          <img class="box" src="assets/tenor3.gif">
         </div>
         <div *ngIf="list!=null" class="row">
           <div class="col-md-4" *ngFor="let other of  list">

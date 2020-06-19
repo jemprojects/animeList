@@ -5,9 +5,12 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build-production": "npm run standardize && ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy-dev": "npm run build --prod && firebase deploy",
+    "deploy-produccion": "npm run build-production && firebase deploy --project animeApp"
   },
   "private": true,
   "dependencies": {

@@ -1,8 +1,9 @@
-import { Anime, Manga } from '../../models/Animes';
+import { Anime, Drama, Manga } from '../../models/Animes';
 import { Component, HostBinding, OnInit } from '@angular/core';
 
 import { AnimesService } from '../../services/animes.service';
 import { AuthService } from 'src/app/auth/auth.service';
+import { DramasService } from '../../services/dramas.service';
 import { MangasService } from '../../services/mangas.service';
 
 @Component({
@@ -18,12 +19,15 @@ export class AllListComponent implements OnInit {
   userLog: string
   animes: Array<Anime>;
   mangas: Array<Manga>
+  dramas: Array<Drama>
   usuarios: string[]
   list:any
-  constructor(private serviceAnime: AnimesService, private serviceManga: MangasService, private authService: AuthService) {
+  // tslint:disable-next-line: max-line-length
+  constructor(private serviceAnime: AnimesService, private serviceManga: MangasService,private service: DramasService, private authService: AuthService) {
     this.userLog = this.authService.authStatus.getValue().email
     this.animes = null
     this.mangas = null
+    this.dramas = null
   }
 
 
@@ -35,7 +39,9 @@ export class AllListComponent implements OnInit {
     this.serviceManga.getMangas(function(mangas) {
       scope.mangas = mangas
     })
-    console.log(this.animes)
+    this.service.getDramas(function(dramas) {
+      scope.dramas = dramas
+    })
   }
   loadUsername(cat){
     this.username = cat.user.split('@')[0].toUpperCase()
@@ -56,10 +62,12 @@ export class AllListComponent implements OnInit {
   getListForUser(){
     if (this.tipo == 'mangas'){
       this.list= this.mangas.filter(m=> m.user.split('@')[0].toUpperCase() === this.userSelect)
-    }
-    else if (this.tipo == 'animes'){
+    }else if (this.tipo == 'animes'){
       this.list= this.animes.filter(m=> m.user.split('@')[0].toUpperCase() === this.userSelect)
+    }else if (this.tipo == 'dramas'){
+      this.list= this.dramas.filter(m=> m.user.split('@')[0].toUpperCase() === this.userSelect)
     }
+
 
   }
 }

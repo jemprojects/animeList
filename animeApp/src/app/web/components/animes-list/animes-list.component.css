@@ -1,5 +1,5 @@
 #form {
-  width: 250px;
+  width: 150px;
   margin: 0 auto;
   height: 50px;
 }
@@ -25,14 +25,11 @@ label {
   unicode-bidi: bidi-override;
 }
 
-label:hover,
-label:hover ~ label {
+.estrella{
   color: orange;
 }
 
-input[type="radio"]:checked ~ label {
-  color: orange;
-}
+
 .box {
   width: 100%;
 
